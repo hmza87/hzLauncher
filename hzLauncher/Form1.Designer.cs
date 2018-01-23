@@ -43,12 +43,13 @@
             this.btn.Image = global::hzLauncher.Properties.Resources.if_gnome_app_install_23871;
             this.btn.ImageFixedSize = new System.Drawing.Size(64, 64);
             this.btn.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btn.Location = new System.Drawing.Point(3, 3);
+            this.btn.Location = new System.Drawing.Point(12, 12);
             this.btn.Name = "btn";
             this.btn.Size = new System.Drawing.Size(84, 103);
             this.btn.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btn.TabIndex = 1;
             this.btn.Text = "buttonX1";
+            this.btn.Visible = false;
             // 
             // styleManager1
             // 
@@ -73,7 +74,6 @@
             this.slider.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.slider.Style.GradientAngle = 90;
             this.slider.TabIndex = 1;
-            this.slider.Text = "panelEx1";
             // 
             // Form1
             // 

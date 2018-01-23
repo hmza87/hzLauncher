@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace hzLauncher.Extends
 {
     static class Vars
     {
-        public static Size DEFAULT_ICON_SIZE = new Size(64, 64);
+        public static Size MAXIMUM_ICON_SIZE = new Size(48, 48);
     }
 }

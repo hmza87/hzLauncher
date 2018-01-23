@@ -5,10 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IWshRuntimeLibrary;
 using DevComponents.DotNetBar;
+using System.IO;
 
 namespace hzLauncher
 {
@@ -26,14 +26,28 @@ namespace hzLauncher
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
-            String[] fileName = (String[])e.Data.GetData("FileName");
+            String[] fileName = (String[])e.Data.GetData(DataFormats.FileDrop);
 
-            WshShell shell = new WshShell();
-            IWshShortcut link = (IWshShortcut)shell.CreateShortcut(fileName[0]);
+            if (System.IO.Directory.Exists(fileName[0]))
+            {
 
-            String targetPath = link.TargetPath;
+            }
+            else
+            {
+                FileInfo i = new FileInfo(fileName[0]);
+                if(i.Extension.ToLower() == ".lnk"){
+                    WshShell shell = new WshShell();
+                    IWshShortcut link = (IWshShortcut)shell.CreateShortcut(fileName[0]);
+                    String targetPath = link.TargetPath;
+                    handleNewRac(targetPath);
+                }else{
+                    handleNewRac(fileName[0]);
+                }
 
-            handleNewRac(targetPath);
+
+            }
+
+            
         }
 
         private void Form1_DragEnter(object sender, DragEventArgs e)
@@ -53,7 +67,13 @@ namespace hzLauncher
             b.Text = fi.Name.Replace(fi.Extension, "");
 
             slider.Controls.Add(b);
-            b.Left = ((slider.Controls.Count - 1) * slider.Controls[0].Width) + 10;
+            b.Left = ((slider.Controls.Count - 1) * (btn.Width + 10));
+            b.Top = 0;
+            b.Visible = true;
+            b.Click += (object s, EventArgs e) =>
+            {
+                this.Text = b.Parent.Name;
+            };
 
             return false;
         }
