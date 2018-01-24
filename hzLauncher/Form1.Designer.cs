@@ -43,7 +43,7 @@
             this.btn.Image = global::hzLauncher.Properties.Resources.if_gnome_app_install_23871;
             this.btn.ImageFixedSize = new System.Drawing.Size(64, 64);
             this.btn.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btn.Location = new System.Drawing.Point(12, 12);
+            this.btn.Location = new System.Drawing.Point(3, 3);
             this.btn.Name = "btn";
             this.btn.Size = new System.Drawing.Size(84, 103);
             this.btn.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -65,7 +65,7 @@
             this.slider.Dock = System.Windows.Forms.DockStyle.Top;
             this.slider.Location = new System.Drawing.Point(0, 0);
             this.slider.Name = "slider";
-            this.slider.Size = new System.Drawing.Size(959, 148);
+            this.slider.Size = new System.Drawing.Size(1057, 148);
             this.slider.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.slider.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.slider.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -80,7 +80,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 174);
+            this.ClientSize = new System.Drawing.Size(1057, 153);
             this.Controls.Add(this.slider);
             this.Name = "Form1";
             this.Text = "Form1";

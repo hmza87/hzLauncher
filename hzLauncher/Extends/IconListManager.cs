@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Windows.Forms;
 
-namespace Extends.IconHelper
+namespace hzLauncher.Extends.IconHelper
 {
 	/// <summary>
 	/// Maintains a list of currently added file extensions

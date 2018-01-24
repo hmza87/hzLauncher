@@ -7,6 +7,6 @@ namespace hzLauncher.Extends
 {
     static class Vars
     {
-        public static Size MAXIMUM_ICON_SIZE = new Size(48, 48);
+        public static Size MAXIMUM_ICON_SIZE = new Size(80, 80);
     }
 }

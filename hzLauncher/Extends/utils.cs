@@ -33,10 +33,12 @@ namespace hzLauncher.Extends
             Icon icon;
             IconExtractor ie;
 
-            FileInfo i = new FileInfo(fn);
+            FileInfo inf = new FileInfo(fn);
 
-            if(i.Extension.ToLower() != ".exe") return Extends
-                try 
+            if (inf.Extension.ToLower() != ".exe") 
+                return Extends.IconHelper.IconReader.GetFileIcon(fn, IconHelper.IconReader.IconSize.Small, false).ToBitmap();
+
+            try 
 	            {	        
 		             ie = new IconExtractor(fn);
 	            }
@@ -73,11 +75,11 @@ namespace hzLauncher.Extends
             Icon bestOne = null;
             foreach (Icon i in splitIcons)
             {
-                if (bestOne == null) bestOne = i;
-                if (i.Height > bestOne.Height && i.Height <= Vars.MAXIMUM_ICON_SIZE.Height) bestOne = i;
+                if (bestOne == null && i.Height <= Vars.MAXIMUM_ICON_SIZE.Height) bestOne = i;
+                if (bestOne != null && i.Height > bestOne.Height && i.Height <= Vars.MAXIMUM_ICON_SIZE.Height) bestOne = i;
             }
 
-            Bitmap bitmap = splitIcons[0].ToBitmap();
+            //Bitmap bitmap = splitIcons[0].ToBitmap();
 
             // Get the bit count of an icon.
 
@@ -85,87 +87,10 @@ namespace hzLauncher.Extends
 
 
 
-            return bestOne.ToBitmap();
+            return (bestOne ?? Properties.Resources.app_icon).ToBitmap();
         }
 
 
-        /// <summary>
-        /// Returns an icon for a given file - indicated by the name parameter.
-        /// </summary>
-        /// <param name="name">Pathname for file.</param>
-        /// <param name="size">Large or small</param>
-        /// <param name="linkOverlay">Whether to include the link icon</param>
-        /// <returns>System.Drawing.Icon</returns>
-        public static System.Drawing.Icon GetFileIcon(string name, IconSize size, bool linkOverlay)
-        {
-            Shell32.SHFILEINFO shfi = new Shell32.SHFILEINFO();
-            uint flags = Shell32.SHGFI_ICON | Shell32.SHGFI_USEFILEATTRIBUTES;
-
-            if (true == linkOverlay) flags += Shell32.SHGFI_LINKOVERLAY;
-
-            /* Check the size specified for return. */
-            if (IconSize.Small == size)
-            {
-                flags += Shell32.SHGFI_SMALLICON;
-            }
-            else
-            {
-                flags += Shell32.SHGFI_LARGEICON;
-            }
-
-            Shell32.SHGetFileInfo(name,
-                Shell32.FILE_ATTRIBUTE_NORMAL,
-                ref shfi,
-                (uint)System.Runtime.InteropServices.Marshal.SizeOf(shfi),
-                flags);
-
-            // Copy (clone) the returned icon to a new object, thus allowing us to clean-up properly
-            System.Drawing.Icon icon = (System.Drawing.Icon)System.Drawing.Icon.FromHandle(shfi.hIcon).Clone();
-            User32.DestroyIcon(shfi.hIcon);		// Cleanup
-            return icon;
-        }
-
-        /// <summary>
-        /// Used to access system folder icons.
-        /// </summary>
-        /// <param name="size">Specify large or small icons.</param>
-        /// <param name="folderType">Specify open or closed FolderType.</param>
-        /// <returns>System.Drawing.Icon</returns>
-        public static System.Drawing.Icon GetFolderIcon(IconSize size, FolderType folderType)
-        {
-            // Need to add size check, although errors generated at present!
-            uint flags = Shell32.SHGFI_ICON | Shell32.SHGFI_USEFILEATTRIBUTES;
-
-            if (FolderType.Open == folderType)
-            {
-                flags += Shell32.SHGFI_OPENICON;
-            }
-
-            if (IconSize.Small == size)
-            {
-                flags += Shell32.SHGFI_SMALLICON;
-            }
-            else
-            {
-                flags += Shell32.SHGFI_LARGEICON;
-            }
-
-            // Get the folder icon
-            Shell32.SHFILEINFO shfi = new Shell32.SHFILEINFO();
-            Shell32.SHGetFileInfo(null,
-                Shell32.FILE_ATTRIBUTE_DIRECTORY,
-                ref shfi,
-                (uint)System.Runtime.InteropServices.Marshal.SizeOf(shfi),
-                flags);
-
-            System.Drawing.Icon.FromHandle(shfi.hIcon);	// Load the icon from an HICON handle
-
-            // Now clone the icon, so that it can be successfully stored in an ImageList
-            System.Drawing.Icon icon = (System.Drawing.Icon)System.Drawing.Icon.FromHandle(shfi.hIcon).Clone();
-
-            User32.DestroyIcon(shfi.hIcon);		// Cleanup
-            return icon;
-        }	
         
 
         public static T cloneControl<T>(this T controlToClone)
