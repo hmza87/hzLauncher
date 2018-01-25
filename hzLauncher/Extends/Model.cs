@@ -11,10 +11,8 @@ namespace hzLauncher.Extends
     {
         private static string data_file = "data.json";
         private List<ShortCut> shorts;
-        public Model()
-        {
-            this.load();
-            if (this.shorts == null) this.shorts = new List<ShortCut>();
+        public Model(){
+            this.shorts = new List<ShortCut>();
         }
 
 
@@ -30,6 +28,7 @@ namespace hzLauncher.Extends
             this.shorts.Add(s);
             return this;
         }
+
 
         public Model commit()
         {
