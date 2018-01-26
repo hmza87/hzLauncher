@@ -30,11 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.edit_menu = new DevComponents.DotNetBar.PanelEx();
+            this.edit_a_btn = new DevComponents.DotNetBar.ButtonX();
+            this.rem_a_btn = new DevComponents.DotNetBar.ButtonX();
             this.slider = new DevComponents.DotNetBar.PanelEx();
             this.ExampleBTN = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.panelEx1.SuspendLayout();
+            this.edit_menu.SuspendLayout();
             this.slider.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,13 +46,14 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.edit_menu);
             this.panelEx1.Controls.Add(this.slider);
             this.panelEx1.Controls.Add(this.buttonX2);
             this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(747, 80);
+            this.panelEx1.Size = new System.Drawing.Size(747, 170);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -56,6 +61,57 @@
             this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
+            this.panelEx1.Click += new System.EventHandler(this.panelEx1_Click);
+            // 
+            // edit_menu
+            // 
+            this.edit_menu.CanvasColor = System.Drawing.SystemColors.Control;
+            this.edit_menu.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.edit_menu.Controls.Add(this.edit_a_btn);
+            this.edit_menu.Controls.Add(this.rem_a_btn);
+            this.edit_menu.DisabledBackColor = System.Drawing.Color.Empty;
+            this.edit_menu.Location = new System.Drawing.Point(173, 86);
+            this.edit_menu.Name = "edit_menu";
+            this.edit_menu.Size = new System.Drawing.Size(123, 74);
+            this.edit_menu.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.edit_menu.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.edit_menu.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.edit_menu.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.edit_menu.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.edit_menu.Style.GradientAngle = 90;
+            this.edit_menu.TabIndex = 4;
+            // 
+            // edit_a_btn
+            // 
+            this.edit_a_btn.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.edit_a_btn.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.edit_a_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.edit_a_btn.FocusCuesEnabled = false;
+            this.edit_a_btn.Location = new System.Drawing.Point(0, 36);
+            this.edit_a_btn.Name = "edit_a_btn";
+            this.edit_a_btn.PopupSide = DevComponents.DotNetBar.ePopupSide.Left;
+            this.edit_a_btn.Size = new System.Drawing.Size(123, 35);
+            this.edit_a_btn.StopPulseOnMouseOver = false;
+            this.edit_a_btn.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.edit_a_btn.SymbolSize = 10F;
+            this.edit_a_btn.TabIndex = 1;
+            this.edit_a_btn.Text = "Edit";
+            // 
+            // rem_a_btn
+            // 
+            this.rem_a_btn.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.rem_a_btn.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.rem_a_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rem_a_btn.FocusCuesEnabled = false;
+            this.rem_a_btn.Location = new System.Drawing.Point(0, 0);
+            this.rem_a_btn.Name = "rem_a_btn";
+            this.rem_a_btn.PopupSide = DevComponents.DotNetBar.ePopupSide.Left;
+            this.rem_a_btn.Size = new System.Drawing.Size(123, 36);
+            this.rem_a_btn.StopPulseOnMouseOver = false;
+            this.rem_a_btn.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.rem_a_btn.SymbolSize = 10F;
+            this.rem_a_btn.TabIndex = 0;
+            this.rem_a_btn.Text = "Remove";
             // 
             // slider
             // 
@@ -66,7 +122,7 @@
             this.slider.Dock = System.Windows.Forms.DockStyle.Top;
             this.slider.Location = new System.Drawing.Point(0, 0);
             this.slider.Name = "slider";
-            this.slider.Size = new System.Drawing.Size(747, 78);
+            this.slider.Size = new System.Drawing.Size(747, 80);
             this.slider.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.slider.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.slider.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -87,7 +143,6 @@
             this.ExampleBTN.ImageTextSpacing = 5;
             this.ExampleBTN.Location = new System.Drawing.Point(25, 0);
             this.ExampleBTN.Name = "ExampleBTN";
-            this.ExampleBTN.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
             this.ExampleBTN.Size = new System.Drawing.Size(67, 78);
             this.ExampleBTN.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ExampleBTN.TabIndex = 1;
@@ -115,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 80);
+            this.ClientSize = new System.Drawing.Size(747, 170);
             this.ControlBox = false;
             this.Controls.Add(this.panelEx1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -127,6 +182,7 @@
             this.Text = "hzLauncher Beta";
             this.Load += new System.EventHandler(this.Default_launcher_Load);
             this.panelEx1.ResumeLayout(false);
+            this.edit_menu.ResumeLayout(false);
             this.slider.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -139,5 +195,8 @@
         private DevComponents.DotNetBar.StyleManager styleManager1;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.PanelEx slider;
+        private DevComponents.DotNetBar.PanelEx edit_menu;
+        private DevComponents.DotNetBar.ButtonX rem_a_btn;
+        private DevComponents.DotNetBar.ButtonX edit_a_btn;
     }
 }

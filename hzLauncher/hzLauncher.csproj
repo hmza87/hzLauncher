@@ -82,6 +82,9 @@
     <Compile Include="Views\Default_launcher.Designer.cs">
       <DependentUpon>Default_launcher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\LauncherView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

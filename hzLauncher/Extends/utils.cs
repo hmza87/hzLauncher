@@ -25,7 +25,6 @@ namespace hzLauncher.Extends
                 return null;
             }
 
-
             return icon;
         }
 
@@ -111,7 +110,12 @@ namespace hzLauncher.Extends
 
             return instance;
         }
+
+
+
     }
+
+
 }
 
 
